@@ -1,0 +1,74 @@
+
+$accent-color: #ee7d14;
+$primary-color: #2a996b;
+$color: black;
+
+//color sceme functions
+$darker-primary: darken($primary-color, 20);
+$lighter-primary: lighten($primary-color, 20);
+
+$darken-accent: darken($accent-color, 20);
+$lighten-accent: lighten($accent-color, 20);
+
+// Sass Functions
+@function lighter($color){
+    $result:lighter($color, 10%);
+    @return $result;
+}
+
+
+// Sass Mixins
+@mixin heading-underline($with) {
+  border-bottom: 1px solid rgb(0, 0, 0);
+  width: $with;
+  margin: auto;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+//Selector inheritance
+%buttons {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 7px;
+
+}
+%light-links {
+  color: white;
+  text-decoration: none;
+}
+
+//Using else/if satement to change color theme from light to dark
+@mixin text($warning: true) {
+    @if $warning {
+      background-color: red;
+      color: yellow;
+      font-weight: bold;
+      padding: 5%;
+      width: 80%;
+      margin: auto;
+      text-align: center;
+      border-radius: 15px;
+      line-height: 1.5;
+      margin-top: 10%;
+      margin-bottom: 10%;
+
+    } @else {
+      background-color: rgb(23, 122, 23);
+      font-weight: bold;
+      padding: 5%;
+      width: 80%;
+      color: black;
+      text-align: center;
+      border-radius: 15px;
+      margin-top: 15%;
+      margin-bottom: 10%;
+      margin: auto;
+      line-height: 1.5;
+
+    }
+  }

@@ -1,0 +1,169 @@
+// Here is my Navigation styling, header, main and footer.
+
+//body
+body {
+  background-color: $lighter-primary;
+}
+
+
+//Header section
+header {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  background-color: $darker-primary;
+  .heading {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $lighten-accent;
+    font-size: 40px;
+    font-weight: bold;
+  }
+}
+
+//Navbar
+
+//Styling hover-effect on navbar
+.link:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: rgb(115, 243, 211);
+  transition: width, 0.3s;
+}
+.link:hover::after {
+  width: 100%;
+  transition: width, 0.3s;
+}
+//Styling navbar-desktop mode
+.navbar {
+  width: 100%;
+  margin: auto;
+  position: absolute;
+
+  background-color: $primary-color;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+  }
+  li {
+    justify-content: space-around;
+    list-style: none;
+    display: inline-block;
+    font-family: "Bebas Neue", cursive;
+    font-size: 2em;
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  a {
+    text-decoration: none;
+    color: rgb(245, 241, 241);
+    z-index: 1;
+  }
+}
+//Styling forms
+form{
+  width: 100%;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  label{
+    margin-left: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}
+input.text-field{
+    width: 100%;
+    border-radius: 15px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+//Styling main
+main {
+  width: 70%;
+  margin: auto;
+  background-color: $lighten-accent;
+  .content {
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+    #courses{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: $lighter-primary;
+      margin-bottom: 10%;
+      border-radius: 10px;
+      .course{
+        width: 50%;
+        border-radius: 15px;
+        background-color: white;
+        padding:5%;
+        margin-top: 5%;
+        margin-bottom: 1%;
+      }
+    }
+    .buttons{
+        margin-top: 10%;
+        margin-bottom: 10%
+    }
+
+    .main-headings {
+      @include heading-underline(70%);
+    }
+
+
+    .image {
+      width: 100%;
+      margin: auto;
+      img {
+        width: 100%;
+        border-radius: 20px;
+        margin-bottom: 30px;
+        margin-top: 50px;
+      }
+    }
+  }
+}
+
+.text1{
+    @include text($warning: true);
+  }
+  .text2 {
+    @include text($warning: false);
+  }
+
+.button1 {
+  @extend %buttons;
+  @extend %light-links;
+  background-color: $darken-accent;
+}
+.button2 {
+  @extend %buttons;
+  @extend %light-links;
+  background-color: $darker-primary;
+}
+
+//Stying footer
+footer {
+  width: 100%;
+  text-align: center;
+  padding: 30px;
+  background-color: $darken-accent;
+  p {
+    padding: 20px;
+    font-weight: bold;
+    @extend %light-links;
+  }
+}

@@ -11,7 +11,10 @@ let linkInput = document.getElementById("link");
 
 //Händelselyssnare
 window.addEventListener('load', getCourses);
-addCourseBtn.addEventListener('click', addCourse);
+addCourseBtn.addEventListener('click', function(e){ 
+    addCourse();
+    e.preventDefault(); 
+} );
 
 
 //Funktioner som läser in fetch anrop
@@ -20,6 +23,11 @@ addCourseBtn.addEventListener('click', addCourse);
 function getCourses(){
     //Gör så att denna funktion körs varje gång fönstret laddas 
     coursesEl.innerHTML ='';
+
+    nameInput.value = '';
+    codeInput.value = '';
+    progressionInput.value = '';
+    linkInput.value = '';
 
     fetch('http://asaberglund.se/rest-crud/crud.php')
     .then(response => response.json())
